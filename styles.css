@@ -44,14 +44,14 @@ body {
 }
 
 /* =====================================================
-   SECTION SYSTEM — height is auto, not fixed
+   SECTION SYSTEM
 ===================================================== */
 .section-block {
   width: 100%;
-  min-height: 400px;          /* all sections share the same floor height */
+  min-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* vertically centre content within the height */
+  justify-content: center;
   padding: 48px 0;
 }
 
@@ -149,14 +149,6 @@ body {
   transition: 0.2s ease;
 }
 
-/* TOOL GRID */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: var(--space-3);
-  justify-items: center;
-}
-
 /* =====================================================
    IMAGE WRAPPER SYSTEM
 ===================================================== */
@@ -176,23 +168,14 @@ body {
   display: block;
 }
 
-.work-media {
-  width: 100%;
-  height: 160px;
-  border-radius: var(--radius-sm);
-  flex-shrink: 0;
-}
-
 /* =====================================================
-   WELCOME
+   WELCOME — horizontal: [photo] | [name + role + icons + btn]
 ===================================================== */
 .welcome {
   background: #ffffff;
   color: #111;
-  /* section-block already gives display:flex flex-direction:column justify-content:center */
 }
 
-/* inner row — overrides the column direction set on section-block */
 .welcome-inner {
   display: flex;
   flex-direction: row;
@@ -210,6 +193,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  flex-shrink: 0;
 }
 
 .welcome-photo img {
@@ -284,6 +268,7 @@ body {
   display: inline-flex;
   justify-content: center;
 }
+
 /* =====================================================
    ABOUT
 ===================================================== */
@@ -317,13 +302,13 @@ body {
 .section-block[aria-label="Why Work With Me"] {
   background: linear-gradient(135deg, #ffffff 0%, #dce9ff 50%, #6b94de 100%);
   color: #111;
-  display: block;           /* block so children use normal flow */
+  display: block;
 }
 
 .why-layout {
   display: flex;
   justify-content: center;
-  align-items: flex-start;  /* align to top so they don't stretch */
+  align-items: flex-start;
   gap: 36px;
   max-width: 760px;
   margin: 0 auto;
@@ -333,7 +318,7 @@ body {
 .why-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;                 /* tight gap between the 5 points */
+  gap: 8px;
   flex: 1;
   min-width: 0;
 }
@@ -362,7 +347,7 @@ body {
   flex-shrink: 0;
   overflow: hidden;
   background: linear-gradient(140deg, #2c5aa0, #0f1a33);
-  align-self: center;      /* vertically centre the photo */
+  align-self: center;
 }
 
 .why-photo img {
@@ -463,7 +448,6 @@ body {
   padding-bottom: var(--space-2);
 }
 
-/* On white-bg sections the border should be dark */
 .section-block[aria-label="Skill Set"] .skill-card h4 {
   border-bottom-color: rgba(0, 0, 0, 0.12);
 }
@@ -480,7 +464,7 @@ body {
 }
 
 /* =====================================================
-   EDUCATION — image LEFT, content RIGHT
+   EDUCATION — image ~2/3 left, content ~1/3 right
 ===================================================== */
 .section-block[aria-label="Education"] {
   background: #000;
@@ -551,11 +535,11 @@ body {
 }
 
 /* =====================================================
-   MY WORK — visible captions + Key Responsibilities
+   MY WORK
 ===================================================== */
 .work-grid {
   display: grid;
-  grid-template-columns: 1fr;   /* single card per section */
+  grid-template-columns: 1fr;
   gap: var(--space-5);
   font-family: 'Times New Roman', Times, serif;
 }
@@ -567,12 +551,12 @@ body {
   padding: var(--space-4);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.06);
-  align-items: flex-start;
+  align-items: center;
 }
 
 .work-media {
-  width: 220px;
-  height: 160px;
+  width: 380px;
+  height: 240px;
   flex-shrink: 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -589,30 +573,28 @@ body {
 .work-body {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
   flex: 1;
   min-width: 0;
 }
 
 .pill {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   background: rgba(42, 97, 200, 0.25);
   border: 1px solid rgba(42, 97, 200, 0.5);
   border-radius: 999px;
-  padding: 3px 12px;
+  padding: 4px 14px;
   color: #fff;
   width: fit-content;
 }
 
 .work-caption {
-  font-size: 0.875rem;
-  opacity: 0.88;
-  line-height: 1.6;
+  font-size: 0.975rem;
+  line-height: 1.7;
   color: #fff;
 }
 
-/* Work section 1 is on white bg */
 .section-block[aria-label="My Work Section 1"] .work-caption {
   color: #111;
 }
@@ -723,7 +705,6 @@ body {
   line-height: 1.3;
 }
 
-/* Button spacing control (optional tightening) */
 .contact-card .button {
   margin: 4px 0;
 }
@@ -773,7 +754,7 @@ body {
 }
 
 /* =====================================================
-   RESPONSIVE — columns shrink content, never collapse
+   RESPONSIVE — tablet
 ===================================================== */
 @media (max-width: 900px) {
   .tools-grid {
@@ -781,24 +762,150 @@ body {
   }
 }
 
+/* =====================================================
+   RESPONSIVE — mobile  (all 5 fixes live here)
+===================================================== */
 @media (max-width: 600px) {
+
+  .section-block {
+    min-height: 420px;
+    padding: 36px 0;
+  }
+
   .section-title {
     font-size: 1.4rem;
   }
 
-  /* Services: keep 3 cols, shrink font */
+  /* ── FIX 1: Welcome photo — wider, shorter ── */
+  .welcome-inner {
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .welcome-photo {
+    width: 130px;      /* wider than the original tall sliver */
+    height: 160px;     /* shorter — less portrait, more square-ish */
+    border-radius: 14px;
+  }
+
+  .welcome-name {
+    font-size: 1.6rem;
+  }
+
+  .welcome-role {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* ── FIX 2: Why Work With Me — tighten content ── */
+  .section-block[aria-label="Why Work With Me"] {
+    padding: 28px 0;   /* tighter top/bottom padding */
+  }
+
+  .why-layout {
+    gap: 16px;         /* less gap between text column and photo */
+    padding: 0 14px;   /* tighter horizontal padding */
+  }
+
+  .why-grid {
+    gap: 4px;          /* tighter gap between the 5 points */
+  }
+
+  .why-item {
+    padding: 3px 0;    /* halved item padding */
+  }
+
+  .why-item h4 {
+    font-size: 0.8rem;
+  }
+
+  .why-item p {
+    font-size: 0.73rem;
+    line-height: 1.4;
+  }
+
+  /* ── FIX 5: Why Work With Me photo — zoom out to fit ── */
+  .why-photo {
+    width: 72px;       /* smaller circle so image shows properly */
+    height: 72px;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .why-photo img {
+    object-fit: cover;
+    object-position: center top; /* show face, not torso */
+  }
+
+  /* ── FIX 3: Education — stack like Work section ── */
+  .education-layout {
+    flex-direction: column;  /* image on top, content below */
+    gap: var(--space-4);
+    padding: 0 16px;
+  }
+
+  .education-photo {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;    /* wide banner — mirrors work-media on mobile */
+    border-radius: var(--radius-sm);
+  }
+
+  .education-grid {
+    flex: none;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .education-item h4 {
+    font-size: 0.85rem;
+  }
+
+  .education-item p,
+  .education-item span,
+  .education-item ul {
+    font-size: 0.8rem;
+  }
+
+  /* ── FIX 4: Services — equal padding on both sides ── */
+  .section-block[aria-label="Services"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2);
+    gap: 6px;
+    /* Kill the auto-margin so we control it ourselves */
+    max-width: 100%;
+    padding: 0 12px;   /* equal left/right margin */
+    margin: 0 auto;
+    box-sizing: border-box;
   }
+
   .service-card {
-    padding: var(--space-2);
+    padding: 8px 6px;
   }
+
   .service-card h4 {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
+
+  .service-card ul {
+    padding-left: 12px;
+  }
+
   .service-card ul li {
-    font-size: 0.72rem;
+    font-size: 0.65rem;
+    margin-bottom: 3px;
+    line-height: 1.4;
   }
 
   /* Skills: keep 3 cols */
@@ -806,74 +913,34 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-2);
   }
-  .skill-card {
-    padding: var(--space-2);
-  }
-  .skill-card h4 {
-    font-size: 0.75rem;
-  }
-  .skill-card ul li {
-    font-size: 0.72rem;
-  }
+  .skill-card { padding: var(--space-2); }
+  .skill-card h4 { font-size: 0.75rem; }
+  .skill-card ul li { font-size: 0.72rem; }
 
   /* Tools */
-  .tools-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .tools-grid { grid-template-columns: repeat(4, 1fr); }
 
   /* Interests: keep 3 cols */
   .interests-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-2);
   }
-  .interests-photo {
-    width: 90px;
-    height: 90px;
-  }
+  .interests-photo { width: 90px; height: 90px; }
 
-  /* Why Work With Me */
-  .why-layout {
-    gap: 20px;
-  }
-  .why-photo {
-    width: 90px;
-    height: 90px;
-  }
-  .why-item h4 {
-    font-size: 0.78rem;
-  }
-  .why-item p {
-    font-size: 0.72rem;
-  }
-
-  /* Education */
-  .education-layout {
-    gap: 20px;
-  }
-  .education-photo {
-    width: 90px;
-    height: 90px;
-  }
-  .education-item h4 {
-    font-size: 0.8rem;
-  }
-
-  /* Work card stacks image on top on small screens */
+  /* Work card: stack on mobile */
   .work-card {
     flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-3);
   }
   .work-media {
     width: 100%;
-    height: 140px;
+    height: 200px;
   }
   .work-details {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2);
   }
-  .work-col h5 {
-    font-size: 0.72rem;
-  }
-  .work-col ul {
-    font-size: 0.72rem;
-  }
+  .work-col h5 { font-size: 0.72rem; }
+  .work-col ul { font-size: 0.72rem; }
 }
