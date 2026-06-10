@@ -1,0 +1,879 @@
+/* =====================================================
+   DESIGN SYSTEM
+===================================================== */
+:root {
+  --bg: #050607;
+
+  --accent: #1a3e7b;
+  --accent-2: #2a61c8;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+
+  --container-width: 1200px;
+
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 18px;
+  --space-5: 24px;
+  --space-6: 36px;
+
+  --shadow: 0 16px 38px rgba(5, 8, 16, 0.35);
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background: var(--bg);
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   SECTION SYSTEM — height is auto, not fixed
+===================================================== */
+.section-block {
+  width: 100%;
+  min-height: 400px;          /* all sections share the same floor height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertically centre content within the height */
+  padding: 48px 0;
+}
+
+.section-block > * {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  width: 100%;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+.section-title {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 2.0rem;
+  text-align: center;
+  margin: 0 0 var(--space-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  opacity: 0.75;
+  margin: 0 0 var(--space-5);
+}
+
+/* =====================================================
+   ICON SYSTEM
+===================================================== */
+[data-icon] {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-icon] img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+.icon-fallback {
+  font-size: 10px;
+  font-weight: 700;
+  color: #333;
+  opacity: 0.6;
+}
+
+/* =====================================================
+   ICON BOXES
+===================================================== */
+.icon-box {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.icon-box-1 {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.icon-box img,
+.icon-box-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.icon-box:hover {
+  transform: scale(1.08);
+  transition: 0.2s ease;
+}
+
+/* TOOL GRID */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+  justify-items: center;
+}
+
+/* =====================================================
+   IMAGE WRAPPER SYSTEM
+===================================================== */
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  padding: 0;
+  display: block;
+}
+
+.work-media {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   WELCOME
+===================================================== */
+.welcome {
+  background: #ffffff;
+  color: #111;
+  /* section-block already gives display:flex flex-direction:column justify-content:center */
+}
+
+/* inner row — overrides the column direction set on section-block */
+.welcome-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+  width: 100%;
+}
+
+.welcome-photo {
+  width: 180px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.welcome-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.welcome-name {
+  font-size: 2.2rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.welcome-role {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.social-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  display: inline-flex;
+  justify-content: center;
+}
+/* =====================================================
+   ABOUT
+===================================================== */
+.about {
+  background: #000;
+  color: #fff;
+}
+
+.about-copy {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-5);
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.about-copy p {
+  margin: 0 0 var(--space-3);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   WHY WORK WITH ME
+===================================================== */
+.section-block[aria-label="Why Work With Me"] {
+  background: linear-gradient(135deg, #ffffff 0%, #dce9ff 50%, #6b94de 100%);
+  color: #111;
+  display: block;           /* block so children use normal flow */
+}
+
+.why-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* align to top so they don't stretch */
+  gap: 36px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.why-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                 /* tight gap between the 5 points */
+  flex: 1;
+  min-width: 0;
+}
+
+.why-item {
+  padding: 6px 0;
+}
+
+.why-item h4 {
+  margin: 0 0 2px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.why-item p {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.why-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(140deg, #2c5aa0, #0f1a33);
+  align-self: center;      /* vertically centre the photo */
+}
+
+.why-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =====================================================
+   SERVICES — 3 equal columns, always
+===================================================== */
+.section-block[aria-label="Services"] {
+  background: #fff;
+  color: #111;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.service-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.service-card h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-bottom: var(--space-2);
+}
+
+.service-card ul {
+  margin: var(--space-2) 0 0;
+  padding-left: 18px;
+}
+
+.service-card ul li {
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   TOOLS GRID
+===================================================== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+  justify-items: center;
+}
+
+/* SOCIAL PLATFORM ICONS */
+.social-platforms {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.social-icon-1 {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 0.7rem;
+}
+
+/* =====================================================
+   SKILLS — 3 columns, always
+===================================================== */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.skill-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+}
+
+.skill-card h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: var(--space-2);
+}
+
+/* On white-bg sections the border should be dark */
+.section-block[aria-label="Skill Set"] .skill-card h4 {
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+}
+
+.skill-card ul {
+  margin: var(--space-2) 0 0;
+  padding-left: 18px;
+}
+
+.skill-card ul li {
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   EDUCATION — image LEFT, content RIGHT
+===================================================== */
+.section-block[aria-label="Education"] {
+  background: #000;
+  color: #fff;
+}
+
+.education-layout {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.education-photo {
+  width: 280px;
+  height: 180px;   /* same as welcome-photo */
+  flex: 0 0 180px; /* prevents flex stretching */
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(140deg, #2c5aa0, #0f1a33);
+}
+
+.education-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.15);
+}
+
+.education-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.education-item {
+  padding: 4px 0;
+}
+
+.education-item h4 {
+  margin: 0 0 2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.education-item p {
+  margin: 0 0 2px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.education-item span {
+  font-size: 0.82rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.education-item ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   MY WORK — visible captions + Key Responsibilities
+===================================================== */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* single card per section */
+  gap: var(--space-5);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-5);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  align-items: flex-start;
+}
+
+.work-media {
+  width: 220px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.work-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.work-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 0;
+}
+
+.pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  background: rgba(42, 97, 200, 0.25);
+  border: 1px solid rgba(42, 97, 200, 0.5);
+  border-radius: 999px;
+  padding: 3px 12px;
+  color: #fff;
+  width: fit-content;
+}
+
+.work-caption {
+  font-size: 0.875rem;
+  opacity: 0.88;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* Work section 1 is on white bg */
+.section-block[aria-label="My Work Section 1"] .work-caption {
+  color: #111;
+}
+
+.section-block[aria-label="My Work Section 1"] .pill {
+  background: rgba(26, 62, 123, 0.12);
+  border-color: rgba(26, 62, 123, 0.35);
+  color: #111;
+}
+
+.section-block[aria-label="My Work Section 1"] .work-col h5 {
+  color: #111;
+}
+
+.section-block[aria-label="My Work Section 1"] .work-col li {
+  color: #333;
+}
+
+.work-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.work-col h5 {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.work-col ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  opacity: 0.88;
+}
+
+.work-col li {
+  margin-bottom: 3px;
+  color: #fff;
+}
+
+/* =====================================================
+   INTERESTS
+===================================================== */
+.section-block[aria-label="Interests"] {
+  background: linear-gradient(135deg, #ffffff 0%, #dce9ff 50%, #6b94de 100%);
+  color: #111;
+  display: block;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.interests-layout {
+  display: flex;
+  justify-content: center;
+}
+
+.interests-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(140deg, #2c5aa0, #0f1a33);
+}
+
+.interests-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+.contact-card {
+  text-align: center;
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+}
+
+.contact-card h2 {
+  margin-bottom: 0;
+}
+
+.contact-card h4 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.contact-card p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Button spacing control (optional tightening) */
+.contact-card .button {
+  margin: 4px 0;
+}
+
+.contact-links {
+  font-size: 0.875rem;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+/* =====================================================
+   COPYRIGHT FOOTER
+===================================================== */
+.copyright-footer {
+  margin-top: var(--space-2);
+  font-size: 0.75rem;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.copyright-footer p {
+  margin: 0;
+}
+
+/* =====================================================
+   SECTION BACKGROUNDS
+===================================================== */
+.section-block[aria-label="About Me"],
+.section-block[aria-label="Tools I Use Section 1"],
+.section-block[aria-label="Social Media Platforms"],
+.section-block[aria-label="Education"],
+.section-block[aria-label="My Work Section 2"],
+.section-block#contact {
+  background: #000;
+  color: #fff;
+}
+
+.section-block[aria-label="Services"],
+.section-block[aria-label="Tools I Use Section 2"],
+.section-block[aria-label="Skill Set"],
+.section-block[aria-label="My Work Section 1"] {
+  background: #fff;
+  color: #111;
+}
+
+/* =====================================================
+   RESPONSIVE — columns shrink content, never collapse
+===================================================== */
+@media (max-width: 900px) {
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  /* Services: keep 3 cols, shrink font */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+  .service-card {
+    padding: var(--space-2);
+  }
+  .service-card h4 {
+    font-size: 0.75rem;
+  }
+  .service-card ul li {
+    font-size: 0.72rem;
+  }
+
+  /* Skills: keep 3 cols */
+  .skill-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+  .skill-card {
+    padding: var(--space-2);
+  }
+  .skill-card h4 {
+    font-size: 0.75rem;
+  }
+  .skill-card ul li {
+    font-size: 0.72rem;
+  }
+
+  /* Tools */
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Interests: keep 3 cols */
+  .interests-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+  .interests-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Why Work With Me */
+  .why-layout {
+    gap: 20px;
+  }
+  .why-photo {
+    width: 90px;
+    height: 90px;
+  }
+  .why-item h4 {
+    font-size: 0.78rem;
+  }
+  .why-item p {
+    font-size: 0.72rem;
+  }
+
+  /* Education */
+  .education-layout {
+    gap: 20px;
+  }
+  .education-photo {
+    width: 90px;
+    height: 90px;
+  }
+  .education-item h4 {
+    font-size: 0.8rem;
+  }
+
+  /* Work card stacks image on top on small screens */
+  .work-card {
+    flex-direction: column;
+  }
+  .work-media {
+    width: 100%;
+    height: 140px;
+  }
+  .work-details {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  .work-col h5 {
+    font-size: 0.72rem;
+  }
+  .work-col ul {
+    font-size: 0.72rem;
+  }
+}
