@@ -486,7 +486,7 @@ body {
   flex: 0 0 180px; /* prevents flex stretching */
   border-radius: 16px;
   overflow: hidden;
-  background: linear-gradient(140deg, #2c5aa0, #0f1a33);
+  background: transparent;
 }
 
 .education-photo img {
@@ -783,8 +783,8 @@ body {
   }
 
   .welcome-photo {
-    width: 130px;      /* wider than the original tall sliver */
-    height: 160px;     /* shorter — less portrait, more square-ish */
+    width: 150px;      /* wider than the original tall sliver */
+    height: 260px;     /* shorter — less portrait, more square-ish */
     border-radius: 14px;
   }
 
@@ -831,8 +831,8 @@ body {
 
   /* ── FIX 5: Why Work With Me photo — zoom out to fit ── */
   .why-photo {
-    width: 72px;       /* smaller circle so image shows properly */
-    height: 72px;
+    width: 100px;       /* smaller circle so image shows properly */
+    height: 100px;
     align-self: flex-start;
     margin-top: 4px;
   }
@@ -849,13 +849,32 @@ body {
     padding: 0 16px;
   }
 
-  .education-photo {
-    flex: none;
+ 
+
+  .education-photo img {
     width: 100%;
-    aspect-ratio: 16 / 9;    /* wide banner — mirrors work-media on mobile */
-    border-radius: var(--radius-sm);
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(0.90);
   }
 
+  .education-photo {
+    flex: none;
+    width: 40%;
+    height:fit-content;   
+    border-radius: var(--radius-sm);
+  }
+/*
+  .education-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.05);
+    
+  }
+*/
   .education-grid {
     flex: none;
     width: 100%;
@@ -920,6 +939,11 @@ body {
   /* Tools */
   .tools-grid { grid-template-columns: repeat(4, 1fr); }
 
+  .section-block[aria-label="Interests"] {
+    min-height: 250px;
+    padding: 36px 0;
+  }
+
   /* Interests: keep 3 cols */
   .interests-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -943,4 +967,9 @@ body {
   }
   .work-col h5 { font-size: 0.72rem; }
   .work-col ul { font-size: 0.72rem; }
+
+   .section-block[aria-label="Let's Work Together"] {
+    min-height: 350px;
+    padding: 36px 0;
+  }
 }
